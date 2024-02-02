@@ -10,6 +10,12 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <div class="row">
+                    <div class="col-2">        
+                        <a href="index.php?page=nasabah_add.php" type="button" class="btn btn-block btn-primary">+ Tambah Nasabah</a>
+                        </br>
+                    </div>
+                </div>
                 <table id="example1" class="table table-bordered table-striped">
 
                 <?php
@@ -23,6 +29,7 @@
                   <thead>
                   <tr>
                     <th>No</th>
+                    <th>No. Rekening</th>
                     <th>Nama</th>
                     <th>Alamat</th>
                     <th>No. HP</th>
@@ -34,10 +41,12 @@
                   <tbody>                  
                     
                     <?php 
+                        $no = 1;
                         while ($row = $result->fetch_assoc()) {
 
-                            echo "<tr>
-                                    <td>{$row['no_rek']}</td>
+                            echo "<tr>                
+                                    <td>{$no}</td>
+                                    <td>{$row['no_rekening']}</td>
                                     <td>{$row['nama']}</td>
                                     <td>{$row['alamat']}</td>                            
                                     <td>{$row['no_hp']}</td>
@@ -48,6 +57,7 @@
                                         <a href='hapus_peminjaman.php?no_bukti={$row['id_nasabah']}'>Hapus</a>
                                     </td>
                                 </tr>";                              
+                            $no++;
                         }
                     ?>                  
                   </tbody>                  
